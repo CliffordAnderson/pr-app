@@ -10,6 +10,8 @@ General
     --highlight-color: #ceded6;
     --svg-red: #EF233C;
     --svg-blue: #4d7ea8;
+    --map-width: 90%;
+    --map-height: 700px;
 }
 
 q {
@@ -182,11 +184,23 @@ Mapbox-provided styling
 via Custom Markers GL JS tutorial
 ==========
 */
+/* 
+ * ============================================
+ * Both the map and its container must be the same size, so we set them to follow a root variable
+ * If either is larger than the other, you either get whitespace, or a map that stretches beyond its container,
+ * but you can't see the outgrown parts
+ * ============================================
+ */
 #map {
     display: block;
-    position: absolute;
-    width: 50%;
-    height: 50%;
+    margin-left: 5%;
+    width: var(--map-width);
+    height: var(--map-height);
+}
+
+canvas.mapboxgl-canvas {
+    width: var(--map-width);
+    height: var(--map-height);
 }
 
 .marker {
@@ -207,6 +221,22 @@ via Custom Markers GL JS tutorial
     /* Remove Open Sans to save load time*/
     /* font-family: 'Open Sans', sans-serif; */
     font-family: Arial, Helvetica, sans-serif;
+}
+
+#drawing {
+    width:55%;
+}
+
+#drawing img {
+    width: 100%;
+}
+
+#drawingPara {
+    display: flex;
+}
+
+.map {
+    width: 45%;
 }
 
 /* 
